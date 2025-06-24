@@ -3,7 +3,7 @@ import os
 from processer import main
 
 
-# Проверяем, что файл есть
+#Проверяем файл 
 @pytest.fixture
 def csv_file():
     filename = "products.csv"
@@ -13,7 +13,7 @@ def csv_file():
 
 
 def test_filter_apple_products(csv_file, monkeypatch, capsys):
-    #Тест фильтрации Apple
+    #Фильтрация Apple
     inputs = [csv_file, "brand=apple", ""]
     monkeypatch.setattr('builtins.input', lambda _: inputs.pop(0))
 
@@ -38,7 +38,7 @@ def test_avg_price(csv_file, monkeypatch, capsys):
 
 
 def test_min_price_filtered(csv_file, monkeypatch, capsys):
-    #Тест поиска минимальной цены среди Xiaomi
+    #поиск минимальной цены среди Xiaomi
     inputs = [csv_file, "brand=xiaomi", "min=price"]
     monkeypatch.setattr('builtins.input', lambda _: inputs.pop(0))
 
